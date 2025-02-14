@@ -14,13 +14,18 @@ class Bank:
         return self.current_balance
 
     def apply_interest(self, cash):
+        if cash >= 1:
+            print(f"\nInterest to be presented as decimals, {cash} is not likely!")
+            return
         mult_interest = 1 + cash
         self.current_balance = round((self.current_balance * mult_interest), 2)
 
     def check_bill(self, cash):
         if self.current_balance > cash:
+            print("\nGood news! You can afford to pay that bill!")
             return True
         else:
+            print("\nHaha, you do not have enough! Call Lyxfällan!")
             return False
 
 acc = Bank()
@@ -34,8 +39,22 @@ print(acc.current_balance)
 my_bal = acc.balance()
 print(my_bal)
 
+acc.apply_interest(1.10)
+print(acc.current_balance)
+
 acc.apply_interest(0.10)
 print(acc.current_balance)
 
+afford = acc.check_bill(2.50)
+if afford:
+    pass
+else:
+    print("For your own good, lets exit!")
+    quit()
+
 afford = acc.check_bill(50)
-print(afford)
+if afford:
+    pass
+else:
+    print("For your own good, lets exit!")
+    quit()
