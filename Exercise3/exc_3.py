@@ -27,7 +27,7 @@ class Bank:
         else:
             print("\nHaha, you do not have enough! Call Lyxfällan!")
             return False
-
+"""
 acc = Bank()
 
 acc.deposit(50)
@@ -58,3 +58,4 @@ if afford:
 else:
     print("For your own good, lets exit!")
     quit()
+"""
